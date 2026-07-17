@@ -1,0 +1,99 @@
+/* ==========================
+   NAVBAR
+========================== */
+
+.navbar {
+    height: 70px;
+    width: 100%;
+    background: #2563eb;
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 40px;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* ==========================
+   LOGO
+========================== */
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: white;
+}
+
+.navbar-logo h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+}
+
+/* ==========================
+   MENU
+========================== */
+
+.navbar-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.navbar-menu li {
+    list-style: none;
+}
+
+.navbar-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+    transition: .3s;
+}
+
+.navbar-menu a:hover {
+    color: #fde047;
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:768px) {
+
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .navbar-logo {
+        margin-bottom: 20px;
+    }
+
+    .navbar-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .navbar-logo h2 {
+        font-size: 22px;
+    }
+
+}

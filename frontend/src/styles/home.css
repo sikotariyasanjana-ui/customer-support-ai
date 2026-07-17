@@ -1,0 +1,100 @@
+/* ==========================
+   HOME PAGE
+========================== */
+
+.home-container {
+    display: flex;
+    min-height: calc(100vh - 70px);
+    background: #f4f7fc;
+}
+
+/* ==========================
+   CONTENT
+========================== */
+
+.home-content {
+    flex: 1;
+    padding: 35px;
+}
+
+/* ==========================
+   TITLE
+========================== */
+
+.dashboard-title {
+    font-size: 34px;
+    color: #2563eb;
+    margin-bottom: 10px;
+}
+
+.dashboard-subtitle {
+    color: #555;
+    margin-bottom: 35px;
+    font-size: 18px;
+}
+
+/* ==========================
+   GRID
+========================== */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+/* ==========================
+   CARD
+========================== */
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .12);
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h2 {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: #2563eb;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #666;
+    line-height: 1.5;
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:768px) {
+
+    .home-container {
+        flex-direction: column;
+    }
+
+    .home-content {
+        padding: 20px;
+    }
+
+    .dashboard-title {
+        font-size: 28px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

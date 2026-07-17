@@ -1,0 +1,61 @@
+.settings-layout {
+    display: flex;
+    min-height: 100vh;
+    background: #f4f7fb;
+}
+
+.settings-container {
+    flex: 1;
+    padding: 40px;
+}
+
+.settings-container h1 {
+    color: #2563eb;
+    margin-bottom: 30px;
+}
+
+.settings-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+    max-width: 700px;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.setting-item label {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.setting-item select {
+    width: 220px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.setting-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #1d4ed8;
+}

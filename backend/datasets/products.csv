@@ -1,0 +1,6 @@
+product_id,product_name,category,price,warranty
+P001,Laptop Pro,Electronics,65000,2 Years
+P002,Wireless Mouse,Accessories,1200,1 Year
+P003,Mechanical Keyboard,Accessories,3500,1 Year
+P004,Gaming Monitor,Electronics,18000,3 Years
+P005,USB-C Hub,Accessories,2500,6 Months

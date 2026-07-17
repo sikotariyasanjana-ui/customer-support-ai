@@ -1,0 +1,4 @@
+order_id,customer,product,status
+ORD001,Rahul,Laptop Pro,Delivered
+ORD002,sanju,Wireless Mouse,Shipped
+ORD003,Priya,Gaming Monitor,Processing

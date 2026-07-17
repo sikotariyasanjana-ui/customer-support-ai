@@ -1,0 +1,32 @@
+.history-page {
+    display: flex;
+    min-height: calc(100vh - 70px);
+    background: #f4f7fc;
+}
+
+.history-content {
+    flex: 1;
+    padding: 30px;
+}
+
+.history-content h1 {
+    color: #2563eb;
+    margin-bottom: 30px;
+}
+
+.history-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+}
+
+.history-card h3 {
+    color: #2563eb;
+    margin-bottom: 10px;
+}
+
+.history-card p {
+    margin: 8px 0;
+}
