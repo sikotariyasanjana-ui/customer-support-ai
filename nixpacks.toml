@@ -1,0 +1,11 @@
+# nixpacks.toml
+# Force Python provider to ensure Python and pip are installed in the build container
+
+[providers]
+python = {}
+
+[phases.install]
+cmds = ["pip install -r backend/requirements.txt"]
+
+[phases.start]
+cmd = "cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT"

@@ -21,13 +21,27 @@ def load_retriever():
 
     embeddings = get_embeddings()
 
-    db = FAISS.load_local(
-        folder_path=str(VECTORSTORE_PATH),
-        embeddings=embeddings,
-        allow_dangerous_deserialization=True
-    )
-
-    print("✅ Vector Database Loaded Successfully")
+    try:
+        db = FAISS.load_local(
+            folder_path=str(VECTORSTORE_PATH),
+            embeddings=embeddings,
+            allow_dangerous_deserialization=True
+        )
+        print("✅ Vector Database Loaded Successfully")
+    except Exception as e:
+        print(f"⚠️ Warning: Could not load local FAISS index ({e}). Rebuilding it...")
+        from rag.vectorstore import build_vectorstore
+        try:
+            build_vectorstore()
+            db = FAISS.load_local(
+                folder_path=str(VECTORSTORE_PATH),
+                embeddings=embeddings,
+                allow_dangerous_deserialization=True
+            )
+            print("✅ Vector Database Rebuilt and Loaded Successfully")
+        except Exception as rebuild_error:
+            print(f"❌ Error: Rebuilding FAISS index failed: {rebuild_error}")
+            raise rebuild_error
 
     retriever = db.as_retriever(
         search_type="similarity",

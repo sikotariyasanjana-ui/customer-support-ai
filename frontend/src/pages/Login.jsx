@@ -1,19 +1,28 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { loginUser } from "../services/authService";
 
 function Login() {
     const navigate = useNavigate();
-
     const [email, setEmail] = useState("");
-
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
+        setError("");
+        setLoading(true);
 
-        localStorage.setItem("token", "demo-token");
-
-        navigate("/");
+        try {
+            await loginUser(email, password);
+            navigate("/");
+        } catch (err) {
+            console.error("Login failed:", err);
+            setError(typeof err === "string" ? err : err.detail || "Invalid email or password.");
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -25,6 +34,12 @@ function Login() {
         >
             <h2>Login</h2>
 
+            {error && (
+                <div style={{ color: "red", marginBottom: "15px", fontSize: "14px" }}>
+                    ⚠️ {error}
+                </div>
+            )}
+
             <form onSubmit={handleLogin}>
 
                 <input
@@ -32,6 +47,8 @@ function Login() {
                     placeholder="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    disabled={loading}
+                    required
                     style={{
                         width: "100%",
                         padding: "12px",
@@ -44,6 +61,8 @@ function Login() {
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    disabled={loading}
+                    required
                     style={{
                         width: "100%",
                         padding: "12px",
@@ -52,12 +71,15 @@ function Login() {
                 />
 
                 <button
+                    type="submit"
+                    disabled={loading}
                     style={{
                         width: "100%",
                         padding: "12px",
+                        cursor: loading ? "not-allowed" : "pointer"
                     }}
                 >
-                    Login
+                    {loading ? "Logging in..." : "Login"}
                 </button>
 
             </form>

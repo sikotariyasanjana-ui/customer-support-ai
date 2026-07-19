@@ -6,11 +6,14 @@ import os
 load_dotenv()
 
 # Read from .env
-MONGODB_URI = os.getenv("MONGODB_URI")
-DATABASE_NAME = os.getenv("DATABASE_NAME")
+MONGODB_URI = os.getenv("MONGODB_URI") or os.getenv("MONGO_URI")
+DATABASE_NAME = os.getenv("DATABASE_NAME") or "customer_support_ai"
 
 # MongoDB client
-client = AsyncIOMotorClient(MONGODB_URI)
+if not MONGODB_URI:
+    raise ValueError("Neither MONGODB_URI nor MONGO_URI is set in the environment variables.")
+
+client = AsyncIOMotorClient(MONGODB_URI, tlsAllowInvalidCertificates=True)
 
 # Database
 db = client[DATABASE_NAME]
